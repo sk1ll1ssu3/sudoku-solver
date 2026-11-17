@@ -1,7 +1,5 @@
-#include <bits/stdc++.h>
 #include <cassert>
-
-using namespace std;
+#include <iostream>
 
 class Sudoku {
 private:
@@ -109,25 +107,25 @@ public:
   void printBoard() const {
     for (int i{0}; i < 9; ++i) {
       for (int j{0}; j < 9; ++j) {
-        cout << board[i][j] << ' ';
+        std::cout << board[i][j] << ' ';
       }
-      cout << '\n';
+      std::cout << '\n';
     }
   }
 };
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
+  std::cout << "Sudoku Solver!\n";
+  std::cout << "Enter the board with blank places marked with 0:\n";
   int board[9][9];
   for (int i{0}; i < 9; ++i) {
     for (int j{0}; j < 9; ++j)
-      cin >> board[i][j];
+      std::cin >> board[i][j];
   }
   Sudoku sudokuBoard(board);
-  cout << '\n';
-  if (sudokuBoard.solve())
+  if (sudokuBoard.solve()) {
+    std::cout << "The Solved Board:\n";
     sudokuBoard.printBoard();
-  else
-    cerr << "The board could not be solved.\n";
+  } else
+    std::cerr << "The board could not be solved.\n";
 }
